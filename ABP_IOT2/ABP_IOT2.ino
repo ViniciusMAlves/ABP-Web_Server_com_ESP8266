@@ -21,8 +21,6 @@ const char* ssid = "Viniphone";
 const char* password = "nseioqcolocar"; 
 //----------------------------------------
 
-long randNumber;
-
 void setup() {
   pinMode(trig, OUTPUT);
   pinMode(echo, INPUT);
@@ -68,9 +66,9 @@ void setup() {
 void loop() {
   //----------------------------------------Send data in the form of random value data to the Firebase Realtime Database.
   
-  double distan = pulso();
-  Serial.println("Valor do sensor de aproximidade em cm: " + String(distan));
-  Firebase.setFloat("Vini/SensorAp", distan); 
+  String distan = String(pulso());
+  Serial.println("Valor do sensor de aproximidade em cm: " + distan);
+  Firebase.setString("Setting/SensorAp", distan); 
 
   if (Firebase.failed()) { 
       Serial.print("Setting /Value failed (Sensor de distancia):");
@@ -82,7 +80,7 @@ void loop() {
   int valorLuz = analogRead(pinoSensorLuz);
   String vlLuz = String(valorLuz);
   Serial.println("Valor do sensor de luz: " + vlLuz);
-  Firebase.setString("Vini/SensorLz", vlLuz); 
+  Firebase.setString("Setting/SensorLz", vlLuz); 
 
   if (Firebase.failed()) { 
       Serial.print("Setting /Value failed (Sensor de Luz):");
