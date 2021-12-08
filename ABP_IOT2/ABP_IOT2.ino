@@ -7,6 +7,7 @@
 #define FIREBASE_AUTH "qlWl9Sjqu3Qurbm2AiF2J1OIBglzQP2ZtVeTCzCM" //--> Your firebase database secret code.
 
 #define ON_Board_LED 2  
+#define LED_Gre D5 
 
 //----------------------------------------Sensor de procimidade
 #define trig D6
@@ -34,6 +35,7 @@ void setup() {
   Serial.println("");
     
   pinMode(ON_Board_LED,OUTPUT); 
+  pinMode(LED_Gre,OUTPUT);
   digitalWrite(ON_Board_LED, HIGH); 
 
   //----------------------------------------Wait for connection
@@ -66,7 +68,7 @@ void setup() {
 void loop() {
   //----------------------------------------Send data in the form of random value data to the Firebase Realtime Database.
   
- /* String distan = String(pulso());
+  String distan = String(pulso());
   Serial.println("Valor do sensor de aproximidade em cm: " + distan);
   Firebase.setString("Vini/SensorAp", distan); 
 
@@ -75,7 +77,7 @@ void loop() {
       Serial.println(Firebase.error());  
       delay(500);
       return;
-  }*/
+  }
 
   int valorLuz = analogRead(pinoSensorLuz);
   String vlLuz = String(valorLuz);
@@ -87,6 +89,20 @@ void loop() {
       Serial.println(Firebase.error());  
       delay(500);
       return;
+  }
+
+  String status = Firebase.getString("Vini/LED");
+
+  if (status == "on") {
+    digitalWrite(LED_Gre, HIGH);
+    Serial.println("LED On");
+    Serial.println();
+  }
+
+  if (status == "off") {
+    digitalWrite(LED_Gre, LOW);
+    Serial.println("LED off");
+    Serial.println();
   }
 
   Serial.println("Setting successful");
