@@ -68,9 +68,9 @@ void setup() {
 void loop() {
   //----------------------------------------Send data in the form of random value data to the Firebase Realtime Database.
   
-  String distan = String(pulso());
-  Serial.println("Valor do sensor de aproximidade em cm: " + distan);
-  Firebase.setString("Vini/SensorAp", distan); 
+  double distan = pulso();
+  Serial.println("Valor do sensor de aproximidade em cm: " + String(distan));
+  Firebase.setFloat("Vini/SensorAp", distan); 
 
   if (Firebase.failed()) { 
       Serial.print("Setting /Value failed (Sensor de distancia):");
