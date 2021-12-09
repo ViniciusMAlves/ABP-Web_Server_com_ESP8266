@@ -7,6 +7,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,22 +19,28 @@
             <div class="card">
                 <h3>Vinicius</h3>
                 <div class="Proc">
-                    <h4>Sensor de Procimidade: 30</h4>
+                    <h4>Sensor de Procimidade: <label for="VProc">?</label></h4>
                 </div>
                 <div class="Luz">
-                    <h4>Sensor de Luz: 180</h4>
+                    <h4>Sensor de Luz: <label for="VLuz">?</label></h4>
                 </div>
             </div>
             <div class="card">
                 <h3>Douglas</h3>
                 <div class="Proc">
-                    <h4>Sensor de Procimidade: 30</h4>
+                    <h4>Sensor de Procimidade: <label for="DProc">?</label></h4>
                 </div>
                 <div class="Luz">
-                    <h4>Sensor de Luz: 180</h4>
+                    <h4>Sensor de Luz: <label for="DLuz">?</label></h4>
                 </div>
             </div>
         </div>
     </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script src="code.js"></script>
 </body>
 </html>
