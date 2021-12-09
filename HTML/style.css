@@ -1,0 +1,20 @@
+
+body{
+    background-color: white;
+}
+.titulo{
+    text-align: center;
+}
+.corpo{
+    display: flex;
+    justify-content: space-around;
+}
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 25%;
+    padding: 2px 16px;
+    height: 300px;   
+    background-color: #00FA9A;
+    border-radius: 15px;
+}
