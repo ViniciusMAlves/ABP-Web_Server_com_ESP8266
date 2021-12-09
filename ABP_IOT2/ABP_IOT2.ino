@@ -70,22 +70,25 @@ void loop() {
   
   double distan = pulso();
   Serial.println("Valor do sensor de aproximidade em cm: " + String(distan));
+
+  int valorLuz = analogRead(pinoSensorLuz);
+  String vlLuz = String(valorLuz);
+  Serial.println("Valor do sensor de luz: " + vlLuz);
+  
   Firebase.setFloat("Vini/SensorAp", distan); 
 
   if (Firebase.failed()) { 
-      Serial.print("Setting /Value failed (Sensor de distancia):");
+      Serial.print("Vini/SensorAp failed: ");
       Serial.println(Firebase.error());  
       delay(500);
       return;
   }
 
-  int valorLuz = analogRead(pinoSensorLuz);
-  String vlLuz = String(valorLuz);
-  Serial.println("Valor do sensor de luz: " + vlLuz);
+  
   Firebase.setString("Vini/SensorLz", vlLuz); 
 
   if (Firebase.failed()) { 
-      Serial.print("Setting /Value failed (Sensor de Luz):");
+      Serial.print("Vini/SensorLz failed: ");
       Serial.println(Firebase.error());  
       delay(500);
       return;
