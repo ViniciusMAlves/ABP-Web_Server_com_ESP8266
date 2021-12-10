@@ -94,15 +94,13 @@ void loop() {
       return;
   }
 
-  String status = Firebase.getString("Vini/LED");
+  float status = Firebase.getFloat("Douglas/SensorAp");
 
-  if (status == "on") {
+   if (status < 10.0 ) {
     digitalWrite(LED_Gre, HIGH);
     Serial.println("LED On");
     Serial.println();
-  }
-
-  if (status == "off") {
+  }else{
     digitalWrite(LED_Gre, LOW);
     Serial.println("LED off");
     Serial.println();
